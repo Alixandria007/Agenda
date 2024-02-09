@@ -1,0 +1,30 @@
+{% extends "global/base.html" %}
+
+{% block content %}
+    <form action="{{form_action}}" class="create_form" method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+
+        <div class="form_content">
+            {% for field in form  %}
+                <div class="form_item">
+                    <label for="{{field.id_for_label}}">{{field.label}}</label>
+                    {{ field }}
+
+                    {{ field.errors }}
+                </div>
+
+                {% if field.name == 'picture' and field.value.url %}
+                    <div class="form_item">
+                        <img src="{{ field.value.url }}" alt="">
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            <button type="submit">{{save}}</button>
+            
+        </div>
+
+    </form>
+{% endblock content %}

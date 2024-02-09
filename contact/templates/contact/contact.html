@@ -1,0 +1,39 @@
+{% extends "global/base.html" %}
+
+{% block content %}
+    <div class="single_contact">
+        <h1>
+            {{contact.first_name}} {{contact.last_name}}
+        </h1>
+
+
+        <p><b>ID:</b> {{contact.id}}</p>
+        <p><b>Telefone:</b> {{contact.phone}}</p>
+        <p><b>Email:</b> {{contact.email}}</p>
+        <p><b>Data de Criação:</b> {{contact.created_date}}</p>
+        <p><b>Descrição:</b> {{contact.description}}</p>
+        <p><b>Categoria:</b> {{contact.category}}</p>
+
+        {% if contact.picture %}
+            <p>
+                <img src="{{contact.picture.url}}" alt="{{contact.first_name}} {{contact.last_name}}">
+            </p>
+        {% endif %}
+        
+        {% if contact.owner == request.user %}
+        <button type="menu"><a href="{% url "contact:update" contact.id %}">Update</a></button>
+         
+        <form action="{% url "contact:delete" contact.id %}" method="post">
+            {% csrf_token %}
+
+                {% if confirmation == 'no' %}
+                    <input type="hidden" name="confirmation" value="yes">
+                    <button type="submit">Confrima?</button>      
+                {% else %}
+                    <button type="submit">Delete</button>
+                {% endif %}
+        {% endif %}
+
+        </form>
+    </div>
+{% endblock content %}

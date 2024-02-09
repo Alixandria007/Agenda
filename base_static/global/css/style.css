@@ -1,0 +1,168 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(230, 230, 230);
+}
+
+
+.header{
+  width: 100%;
+  background: rgb(10, 1, 70);
+  padding: 20px
+}
+
+.heading_header{
+  font-size: 50px;
+  text-align: center;
+}
+
+.heading_header a{
+  color: rgb(253, 253, 253);
+  text-decoration: none;
+}
+
+.menu{
+  display:flex;
+  justify-content: center;
+}
+
+.menu_list{
+  display:flex;
+  list-style: none;
+}
+
+.menu_itens{
+  display: block;
+  padding: 15px;
+}
+
+.menu_link{
+  text-decoration: none;
+  color: white;
+}
+
+.menu_link:hover{
+  text-decoration: underline;
+}
+
+.form{
+  display: flex;
+  justify-content: center;
+}
+
+.search{
+  padding: 10px 10px 10px 2px;
+}
+
+.content{
+  background: #f1f1f1;
+  max-width: 1200px;
+  height: 100%;
+  padding: 15px;
+  margin: 20px auto;
+  box-shadow: 2px 2px 5px 5px rgb(0,0,0,0.2);
+}
+
+.responsive_table{
+  width: 100%;
+  overflow-x: auto;
+}
+
+.caption_table{
+  font-size: 50px;
+  padding: 10px;
+}
+
+.contacts_table{
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  height: auto;
+}
+
+.table_collum,.table_header{
+  padding: 3px;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 20px;
+}
+
+.table_link{
+  text-decoration: none;
+  color: rgb(0, 96, 173)
+}
+
+.table_link:hover{
+  text-decoration: underline;
+}
+tbody .table_row:nth-child(odd){
+  background: rgb(202, 201, 201);
+}
+
+.pagination{
+  text-align: center;
+  padding-top: 5px;
+}
+
+.create_form{
+  display: flex;
+  max-width: 1200px;
+  justify-content: center;
+}
+
+label{
+  display: block;
+}
+
+.form_content{
+  display: grid;
+  grid-template-columns: 1fr
+}
+
+.form_item input, .form_item textarea, select{
+  width: 360px;
+  border-radius: 4px;
+}
+
+.form_item input, .form_item select{
+  height: 30px;
+}
+
+.form_item img{
+  width: 360px;
+}
+
+.errorlist{
+  color: rgb(252, 88, 88);
+  list-style: none;
+  font-size: 13px;
+}
+
+.message{
+  max-width: 600px;
+  border-radius: 4px;
+  margin: 15px auto;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 18px;
+  padding: 15px;
+}
+
+.message.success {
+  background: rgba(0, 255, 0, 0.3);
+  border: 1px solid rgba(0, 255, 0, 90%);
+}
+
+.message.error {
+  background: rgba(255, 0, 0, 0.3);
+  border: 1px solid rgba(255, 0, 0, 0.9);
+}
+
+.help-text{
+  font-size: 12px;
+  width: 360px;
+}
