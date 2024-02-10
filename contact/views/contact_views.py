@@ -50,9 +50,10 @@ def search(request):
 
     
 
-    contacts = Contact.objects.filter(show = True).filter(Q(first_name__icontains = search) | Q(last_name__icontains = search) ).order_by('-id')
+    contacts = Contact.objects.filter(show = True).filter(Q(first_name__icontains = search) | Q(last_name__icontains = search)).order_by('-id')
 
-    paginator = Paginator(contacts, 10)
+    search_contacts = contacts
+    paginator = Paginator(search_contacts, 10)
     page_number = request.GET.get("page",'')
     page_obj = paginator.get_page(page_number)
     
