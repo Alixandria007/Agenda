@@ -9,11 +9,12 @@ def index(request):
     contacts = Contact.objects.filter(show = True).order_by('-id')
     paginator = Paginator(contacts, 10) 
 
-    page_number = request.GET.get("page")
+    page_number = request.GET.get("page", None)
     page_obj = paginator.get_page(page_number)
 
     context = {
         'contacts': str(list(contacts)),
+        'contacts_': contacts,
         'site_title': f'Contatos - ',
         'page_obj' : page_obj,
         
@@ -47,13 +48,12 @@ def contact(request , id):
 def search(request):
     search = request.GET.get('q', '').strip()
 
-    if search == '':
-        return redirect('contact:index')
+    
 
     contacts = Contact.objects.filter(show = True).filter(Q(first_name__icontains = search) | Q(last_name__icontains = search) ).order_by('-id')
 
     paginator = Paginator(contacts, 10)
-    page_number = request.GET.get("page")
+    page_number = request.GET.get("page",'')
     page_obj = paginator.get_page(page_number)
     
     context = {
@@ -63,8 +63,9 @@ def search(request):
         'search': search
     }
 
+    
     return render(
         request,
-        'contact/index.html',
+        'contact/search.html',
         context,
     )

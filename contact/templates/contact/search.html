@@ -8,6 +8,7 @@
 
         
         <table class="contacts_table">
+            {% if contacts != '[]' %}
             <caption class="caption_table">
                 Contatos
             </caption>
@@ -22,7 +23,9 @@
                     <th class="table_header">Email</th>
                 </tr>
             </thead>
-            
+            {% else %}
+                <p>Nenhum contato encontrado</p>
+           {% endif %}
             
                <tbody>
                 
@@ -34,6 +37,7 @@
                         <td class="table_collum">{{contact.phone}}</td>
                         <td class="table_collum">{{contact.email}}</td>
                     </tr>
+                    
                     {% endfor %}
                 
                     

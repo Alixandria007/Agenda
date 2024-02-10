@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="single_contact">
-        <h1>
+        <h1 class="contact-name">
             {{contact.first_name}} {{contact.last_name}}
         </h1>
 
@@ -21,17 +21,20 @@
         {% endif %}
         
         {% if contact.owner == request.user %}
-        <button type="menu"><a href="{% url "contact:update" contact.id %}">Update</a></button>
+
+        <div class="buttons-content">
+        <button type="menu" class="contact-button update"><a href="{% url "contact:update" contact.id %}">Update</a></button>
          
         <form action="{% url "contact:delete" contact.id %}" method="post">
             {% csrf_token %}
 
                 {% if confirmation == 'no' %}
                     <input type="hidden" name="confirmation" value="yes">
-                    <button type="submit">Confrima?</button>      
+                    <button type="submit" class="contact-button delete">Confrima?</button>      
                 {% else %}
-                    <button type="submit">Delete</button>
+                    <button type="submit" class="contact-button delete">Delete</button>
                 {% endif %}
+        </div>
         {% endif %}
 
         </form>
