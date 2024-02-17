@@ -210,3 +210,11 @@ label{
 .step-links a:hover{
   text-decoration: underline;
 }
+
+.rotate{
+  transform: rotate(180deg);
+}
+
+.current{
+  padding: 10px;
+}

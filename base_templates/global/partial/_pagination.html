@@ -1,19 +1,19 @@
 {% if page_obj %}
-<div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; 1</a>
-            <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a class="forward-left" href="?page=1"><i class="rotate fa-solid fa-forward-fast"></i></a>
+                    <a href="?page={{ page_obj.previous_page_number }}"><i class="fa-solid fa-circle-left"></i></a>
+                {% endif %}
+        
+                <span class="current">
+                    {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}"><i class="fa-solid fa-circle-right"></i></a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}"><i class="fa-solid fa-forward-fast"></i></a>
+                {% endif %}
+            </span>
+        </div>
         {% endif %}
-
-        <span class="current">
-            {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
-        </span>
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">Proximo</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}"> {{ page_obj.paginator.num_pages }} &raquo;</a>
-        {% endif %}
-    </span>
-</div>
-{% endif %}

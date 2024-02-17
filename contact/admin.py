@@ -19,3 +19,4 @@ class ContactAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = 'name',
     ordering = '-id',
+
